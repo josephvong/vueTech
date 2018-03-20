@@ -1,12 +1,12 @@
 <template>
-  <div :class="['todo-item', todo.completed ? 'completed' : '']">
+  <div :class="[$style.todoItem, todo.completed ? $style.completed : '']">
     <input 
       type="checkbox"
-      class="toggle"
+      :class="$style.toggle"
       v-model="todo.completed"
     >
-    <label>{{todo.content}}</label>
-    <button class="destory" @click="deleteTodo"></button>
+    <label >{{todo.content}}</label> 
+    <button :class="$style.destory" @click="deleteTodo"></button>
   </div>
 </template>
 
@@ -15,18 +15,18 @@ export default {
   props: {
     todo: {
       type: Object,
-      required: true,
+      required: true
     }
   },
   methods: {
-    deleteTodo() {
-      this.$emit('del', this.todo.id)
+    deleteTodo () {
+      this.$emit('del', this.todo.id )
     }
   }
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" module>
 .todo-item{
   position relative
   background-color #fff
@@ -65,10 +65,10 @@ export default {
   appearance: none;
   outline none
   &:after{
-    content url('../assets/images/round.svg')
+    content url('../../assets/images/round.svg')
   }
   &:checked:after{
-    content url('../assets/images/done.svg')
+    content url('../../assets/images/done.svg')
   }
 }
 .destory{

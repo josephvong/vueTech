@@ -1,5 +1,5 @@
 # About
-这是慕课网上[Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)课程的源码
+这是基于慕课网上[Vue+Webpack打造todo应用](https://www.imooc.com/learn/935)课程的源码自行搭建的vue项目
 
 # 使用方法
 ```
