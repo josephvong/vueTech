@@ -1,12 +1,13 @@
 import Vue from 'vue'
 
 const app = new Vue({
-  data() {
+  data () {
     return {
-      text:0, 
-    }   
+      text: 0
+    }
   },
-  template: '<div>hello world {{text}}</div>',
+  // template: '<div>hello world {{text}}</div>',
+
   beforeCreate () {
     console.log(this, 'beforeCreate')
   },
@@ -16,6 +17,11 @@ const app = new Vue({
   beforeMount () {
     console.log(this, 'beforeMount')
   },
+
+  render (h) {
+    return h('div', {}, this.text)
+  },
+
   mounted () {
     console.log(this, 'mounted')
   },
