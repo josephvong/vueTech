@@ -58,7 +58,7 @@ if (isDev) {
       ]
     },
 
-    devServer,
+    devServer, 
 
     plugins: defaultPlugins.concat([
       new webpack.HotModuleReplacementPlugin(), 

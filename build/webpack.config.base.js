@@ -16,7 +16,7 @@ const config = {
       {
         test: /\.(vue|js|jsx)$/,
         loader: 'eslint-loader', 
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /practice/],
         enforce: 'pre'
       },
       {
