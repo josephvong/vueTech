@@ -2,4 +2,5 @@
 //import './lifecircle'
 // import './data-binding'
 //import './computed'
-import './directive'
+//import './directive'
+import './component1'
