@@ -3,4 +3,6 @@
 // import './data-binding'
 //import './computed'
 //import './directive'
-import './component1'
+//import './component1'
+//import './component2'
+import './render'
