@@ -1,10 +1,14 @@
 <template>
   <div id="app">
+    
     <div id="cover"></div>
     <Header></Header>
     <router-link to="/app">app</router-link> 
     <router-link to="/login">login</router-link>
-    <router-link to="/login/exact">login</router-link>  
+    <router-link to="/login/exact">login</router-link> 
+    <p @click="clickHandle">{{fullName}} + {{firstName}}</p> 
+    <p>{{count}}</p>
+    <p>{{a}} {{b}}</p>
     <router-view></router-view>
     <!-- <todo></todo> -->
     <Footer></Footer>
@@ -12,6 +16,7 @@
 </template>
 
 <script>
+import {mapState, mapGetters, mapMutations} from 'vuex' // , mapActions
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
 // import Todo from './views/todo/todo.vue'
@@ -21,6 +26,43 @@ export default {
     Header,
     Footer
     // Todo
+  },
+  data () {
+    return {
+      // firstName: this.$store.state.firstName
+      a: this.$store.state.a.text,
+      b: this.$store.state.b.text
+    }
+  },
+  computed: {
+    // fullName () {
+    //   return this.$store.getters.fullName
+    // },
+    ...mapGetters(['fullName']),
+    ...mapState(['firstName', 'lastName', 'count'])
+  },
+  methods: {
+    // ...mapActions({
+    //   updateCountAsync: 'updateCountAsync',
+    //   changeBText: 'b/changeText'
+    // }),
+    clickHandle () {
+      // this.updateAText('34')
+      console.log('c')
+    },
+    ...mapMutations({
+      updateCount: 'updateCount',
+      updateAText: 'a/updateText'
+    })
+  },
+  created () {
+    // this.updateCountAsync({num: 10, time: 2000})
+  },
+  mounted () {
+    setTimeout(() => {
+      this.updateCount('4')
+      this.updateAText('34')
+    }, 1000)
   }
 }
 </script>
