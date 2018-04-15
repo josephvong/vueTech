@@ -8,7 +8,8 @@
     <router-link to="/login/exact">login</router-link> 
     <p @click="clickHandle">{{fullName}} + {{firstName}}</p> 
     <p>{{count}}</p>
-    <p>{{a}} {{b}}</p>
+    <p>{{a}} {{b}}</p> 
+    <p>{{mctext}}</p>
     <router-view></router-view>
     <!-- <todo></todo> -->
     <Footer></Footer>
@@ -31,15 +32,25 @@ export default {
     return {
       // firstName: this.$store.state.firstName
       a: this.$store.state.a.text,
-      b: this.$store.state.b.text
+      b: this.$store.state.b.text,
+      c: this.$store.state.c.mctext
     }
   },
   computed: {
     // fullName () {
     //   return this.$store.getters.fullName
     // },
-    ...mapGetters(['fullName']),
-    ...mapState(['firstName', 'lastName', 'count'])
+
+    ...mapGetters({
+      fullName: 'fullName',
+      textPlus: 'a/textPlus'
+    }),
+    ...mapState({
+      firstName: 'firstName',
+      lastName: 'lastName',
+      count: 'count',
+      mctext: 'mctext'
+    })
   },
   methods: {
     // ...mapActions({
@@ -59,9 +70,12 @@ export default {
     // this.updateCountAsync({num: 10, time: 2000})
   },
   mounted () {
+    console.log(this.textPlus)
+    console.log(this.$store.state.c)
     setTimeout(() => {
-      this.updateCount('4')
+      this.updateCount(20)
       this.updateAText('34')
+      console.log(this.textPlus)
     }, 1000)
   }
 }

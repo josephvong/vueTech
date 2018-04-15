@@ -13,6 +13,22 @@ const router = createRouter()
 Vue.use(Vuex) // 注册Vuex
 const store = createStore()
 
+// 动态创建一个 vuex 模块
+store.registerModule('c', {
+  state: {
+    mctext: 'c'
+  }
+})
+
+store.watch((state) => { return state.count }, (newCount) => {
+  console.log(`newCount: ${newCount}`)
+})
+
+store.subscribe((mutation, state) => {
+  console.log(mutation.type)
+  console.log(mutation.payload)
+})
+
 router.beforeEach((to, from, next) => {
   console.log('before each invoked')
   next()
